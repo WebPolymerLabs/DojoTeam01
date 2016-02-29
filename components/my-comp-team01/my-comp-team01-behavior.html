@@ -1,0 +1,45 @@
+<link rel="import" href="../polymer/polymer.html">
+<script>
+  var PolymerLab01 = PolymerLab01 || {};
+    PolymerLab01.ZipCodeBehaviorImpl = {
+      
+      properties: {
+        zipCode: {
+          type: String,
+          observer: 'buscaEndereco'
+        },
+        addressResult: {
+          type: Object,
+          notify: true,
+          value: null
+        }
+      },
+      
+      get _ironAjaxElement () {
+        return this.$.ajaxEndereco;
+      },
+      
+      buscaEndereco: function(newValue) {
+        console.log('buscando cep: ' + newValue);
+        if (newValue && String(newValue).length >= 8) {
+          this._ironAjaxElement.url = "https://viacep.com.br/ws/" + newValue + "/json";
+          this._ironAjaxElement.generateRequest();
+        } else {
+          this.addressResult = null;
+        }
+      },
+      
+      _trataRetornoEndereco: function(data) {
+        console.log('retorno cep: ', data.detail.response);
+        
+        this.addressResult = data.detail.response;
+        
+        console.log(this.addressResult);
+      },      
+      
+  };
+  
+  PolymerLab01.ZipCodeBehavior = [ 
+    PolymerLab01.ZipCodeBehaviorImpl 
+  ];
+</script>
