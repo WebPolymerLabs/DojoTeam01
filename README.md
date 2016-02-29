@@ -1,5 +1,7 @@
 # my-comp-team01
 
+[![Join the chat at https://gitter.im/WebPolymerLabs/DojoTeam01](https://badges.gitter.im/WebPolymerLabs/DojoTeam01.svg)](https://gitter.im/WebPolymerLabs/DojoTeam01?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 An element providing a starting point for your own reusable Polymer elements.
 
 [DEMO](http://webpolymerlabs.github.io/DojoTeam01/components/my-comp-team01/demo/index-user-reqs.html)
