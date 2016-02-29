@@ -49,14 +49,17 @@
       <div class="horizontal-section-container">
         <div class="vertical-section">
           <demo-snippet>
+            <div class="my-input-container">
+              <input is="iron-input" bind-value="{{cepValue}}" placeholder="CEP">
+            </div>
+            <my-comp-team01 zip-code="[[cepValue]]" address-result="{{resultadoEndereco}}" no-maps></my-comp-team01>
             <paper-material elevation="1">
-              <div class="my-input-container">
-                <input is="iron-input" bind-value="{{cepValue}}">
-              </div>
-              <my-comp-team01 zip-code="[[cepValue]]" address-result="{{resultadoEndereco}}" no-maps></my-comp-team01>
-              <paper-material elevation="1">
-                <span>Logradouro: <span>[[resultadoEndereco.logradouro]]</span></span>
-              </paper-material>
+              <p><b>Logradouro:</b> <span>[[resultadoEndereco.logradouro]]</span></p>
+              <p><b>Bairro:</b> <span>[[resultadoEndereco.bairro]]</span></p>
+              <p><b>Cidade:</b> <span>[[resultadoEndereco.localidade]]</span></p>
+              <p><b>UF:</b> <span>[[resultadoEndereco.uf]]</span></p>
+              <p><b>Complemento:</b> <span>[[resultadoEndereco.complemento]]</span></p>
+              <p><b>IBGE:</b> <span>[[resultadoEndereco.ibge]]</span></p>
             </paper-material>
           </demo-snippet>
         </div>
@@ -67,7 +70,7 @@
           
           var app = document.querySelector('#app');
           
-          app.cepValue = '<cep>';
+          //app.cepValue = '<cep>';
           //app.resultadoEndereco = { logradouro: '<endereco>' };
           
         });
